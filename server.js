@@ -27,5 +27,8 @@ app.use('/papel_de_parede', papel_de_parede)
 app.use('/piso', piso)
 app.use('/ranking', ranking)
 
-app.listen(3000, () => console.log("Servidor rodando."))
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+    console.log(`Server running on port ${port}`);
+});
 
