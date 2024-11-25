@@ -14,7 +14,7 @@
 <img src="https://skillicons.dev/icons?i=express" height="35 "alt="express logo"/>
 <img src="https://skillicons.dev/icons?i=prisma" height="35 "alt="prisma logo"/>
 <img src="https://skillicons.dev/icons?i=mongodb" height="35 "alt="mongodb logo"/>
-<div>
+</div>
 
 ---
 
