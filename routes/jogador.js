@@ -53,4 +53,67 @@ router.get('/', async (req,res) => {
     }
 })
 
+// Rota GET para pelo ID
+router.get('/:id', async (req, res) => {
+    try {
+      const { id } = req.params;
+      const jogador = await prisma.jogador.findUnique({
+        where: { id },
+      });
+  
+      res.status(200).json(jogador)
+    } catch (err) {
+      console.error('Erro ao buscar jogador:', err);
+      res.status(500).json({ message: 'Erro no servidor, tente novamente.' });
+    }
+  })
+
+// Rota PUT para atualizar um jogador
+router.put('/:id', async (req, res) => {
+    const { id } = req.params;
+    const { nome, usuario, senha, data_nascimento, cidade, telefone, email, minigames, desbloqueio, quantidade_moedas, nivel, fase } = req.body;
+  
+    try {
+      const jogador = await prisma.jogador.update({
+        where: { id },
+        data: {
+          nome,
+          usuario,
+          senha,
+          data_nascimento: DateTime.fromISO(data_nascimento).toJSDate(),
+          cidade,
+          telefone,
+          email,
+          minigames,
+          desbloqueio,
+          quantidade_moedas,
+          nivel,
+          fase
+        },
+      });
+  
+      res.status(200).json(jogador);
+    } catch (err) {
+      console.error('Erro ao atualizar jogador:', err);
+      res.status(500).json({ message: 'Erro no servidor, tente novamente.' });
+    }
+  })
+
+// Rota DELETE 
+router.delete('/:id', async (req, res) => {
+    const { id } = req.params;
+  
+    try {
+      const jogador = await prisma.jogador.delete({
+        where: { id },
+      });
+  
+      res.status(200).json({ message: 'Jogador excluído com sucesso', jogador });
+    } catch (err) {
+      console.error('Erro ao excluir jogador:', err);
+      res.status(500).json({ message: 'Erro no servidor, tente novamente.' });
+    }
+  })
+
+
 export default router
