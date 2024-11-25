@@ -56,7 +56,7 @@ Antes de começar, certifique-se de que você possui os seguintes itens instalad
 
 A estrutura de arquivos do projeto é:
 
-    ![estrutura de arquivos](/scr/estruturadoarquivo.png)
+   ![estrutura de arquivos](/scr/estruturadoarquivo.png)
 
 ---
 
