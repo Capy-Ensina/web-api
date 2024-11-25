@@ -29,7 +29,7 @@ router.get('/', async (req,res) => {
 
     try {
         const itens = await Prisma.itens.findMany()
-        res.status(2000).json(itens)
+        res.status(200).json(itens)
     } catch (err){
         console.error('Erro no servidor', err)
         res.status(500).json({ message: 'Erro no servidor. tente novamente'})

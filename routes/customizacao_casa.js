@@ -30,7 +30,7 @@ router.post('/', async (req,res) => {
 router.get('/', async (req,res) => {
 
     try {
-        const customizacoes = await prisma.customizacao_casa.findMNany()
+        const customizacoes = await prisma.customizacao_casa.findMany()
         res.status(200).json(customizacoes)
     } catch (err){
         console.error('Erro no servidor', err)
