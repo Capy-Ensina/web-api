@@ -12,13 +12,13 @@
 
 ***MongoDB** : Banco de dados NoSQL.
 
-<imgsrc="https://skillicons.dev/icons?i=nodejs"height="35"alt="nodejs logo"/>
+<img src="https://skillicons.dev/icons?i=nodejs"height="35"alt="nodejs logo"/>
 
-<imgsrc="https://skillicons.dev/icons?i=express"height="35"alt="express logo"/>
+<img src="https://skillicons.dev/icons?i=express"height="35"alt="express logo"/>
 
-<imgsrc="https://skillicons.dev/icons?i=prisma"height="35"alt="prisma logo"/>
+<img src="https://skillicons.dev/icons?i=prisma"height="35"alt="prisma logo"/>
 
-<imgsrc="https://skillicons.dev/icons?i=mongodb"height="35"alt="mongodb logo"  />
+<img src="https://skillicons.dev/icons?i=mongodb"height="35"alt="mongodb logo"  />
 
 ---
 
