@@ -26,13 +26,17 @@ router.post('/', async (req, res) => {
             ]
         })
 
-        // atualiza a posição de cada jogador
-        for (let i = 0; i < rankings.length; i++){
-            await prisma.ranking.update({
-                where: { id: rankings[i].id},
-                data: { posicao: i + 1}
+       // Atualizar a posição de cada jogador
+    // `map` para criar as atualizações, mas agora com Promise.all para otimizar a execução
+        const atualizacoes = rankings.map((ranking, index) => {
+            return prisma.ranking.update({
+                where: { id: ranking.id },
+                data: { posicao: index + 1 },  // A posição é definida pelo índice + 1
             })
-        }
+        })
+
+        // Aguarda todas as atualizações de uma vez
+        await Promise.all(atualizacoes);
 
         res.status(200).json(novoRanking);
     } catch (err) {
