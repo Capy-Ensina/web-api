@@ -7,7 +7,7 @@ const prisma = new PrismaClient()
 const router = express.Router()
 
 // Rota POST para cadastrar um novo jogador
-router.post('/jogador', async (req,res) => {
+router.post('/', async (req,res) => {
     
     try {
     const {nome, usuario, senha, data_nascimento, cidade, telefone, email, minigames, desbloqueio, quandtidade_moedas, nivel, fase} = req.body
