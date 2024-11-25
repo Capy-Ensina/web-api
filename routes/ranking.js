@@ -15,7 +15,7 @@ router.post('/', async (req, res) => {
                 minigame,
                 usuario,
                 pontuacao,
-                tempo
+                tempo,
             }
         })
 
@@ -72,9 +72,24 @@ router.put('/:id', async (req, res) => {
                 usuario,
                 pontuacao,
                 tempo,
-                dataAtualizacao: new Date()
+                dataAtualizacao: new Date(),
             },
         })
+
+        const rankings = await prisma.ranking.findMany({
+            orderBy: [
+                { pontuacao: 'desc' },
+                { tempo: 'asc' },
+            ],
+        })
+
+         // Atualiza a posição de cada registro
+         for (let i = 0; i < rankings.length; i++) {
+            await prisma.ranking.update({
+                where: { id: rankings[i].id },
+                data: { posicao: i + 1 },
+            })
+        }
 
         res.status(200).json(rankingAtualizado);
     } catch (err) {
