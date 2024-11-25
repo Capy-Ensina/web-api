@@ -1,6 +1,7 @@
 import express from 'express'
 import bcrypt from 'bcrypt'
 import { PrismaClient } from '@prisma/client'
+import { DateTime } from 'luxon'
 
 const prisma = new PrismaClient()
 const router = express.Router()
@@ -37,6 +38,18 @@ router.post('/jogador', async (req,res) => {
     } catch (err){
         console.error('Erro no servidor:', err)
         res.status(500).json({message: 'Erro no servidor, tente novamente.'})
+    }
+})
+
+// Rota GET para listar jogadores
+router.get('/', async (req,res) => {
+
+    try {
+        const jogadores = await prisma.jogador.findMany();
+        res.status(200).json(jogadores)
+    } catch (err) {
+        console.error('Erro ao buscar jogadores', err)
+        res.status(500).json({message: 'Erro no servidor, tente novamente'})
     }
 })
 
