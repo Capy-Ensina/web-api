@@ -56,27 +56,7 @@ Antes de começar, certifique-se de que você possui os seguintes itens instalad
 
 A estrutura de arquivos do projeto é:
 
-   node_modules/                                                → Dependências do projeto instaladas pelo 'npm'
-   prisma/                                                             → Configuração do Prisma, incluindo schema do banco.
-   └── schema.prisma                                         → Modelo do banco de dados.
-   routes/                                                              → Arquivos de rotas da API, uma para cada coleção
-   └── conteudo.js                                               # Rotas para a coleção de conteúdos
-   └── customizacao_casa.js                                # Rotas para customizações da casa
-   └── itens.js                                                       # Rotas para itens gerais
-   └── jogador.js                                                  # Rotas para a coleção de jogadores
-   └── jogador_pontuacao.js                               # Rotas para pontuações de jogadores
-   └── loja.js                                                         # Rotas para a loja
-   └── minigames.js                                             # Rotas para os minigames
-   └── moveis.js                                                   # Rotas para os móveis
-   └── papel_de_parede.js                                   # Rotas para papéis de parede
-   └── piso.js                                                        # Rotas para pisos
-   └── ranking.js                                                   # Rotas para a coleção de rankings
-   .env                                                                   → Configutação para variáveis de ambiente.
-   .gitignore                                                          → Arquivo a serem ignorados pelo Git.
-   package.json                                                     → Configurações do projeto e scripts.
-   package-lock.json                                             → Arquivo gerado automaticamente que fixa as versões exatas das dependências instaladas
-   procfile                                                              → Arquivo de configuração para deploy no Railway (ou serviços similares)
-   server.js                                                             → Arquivo principal que configura as rotas e inicializa o servidor.
+    ![estrutura de arquivos](/scr/estruturadoarquivo.png)
 
 ---
 
