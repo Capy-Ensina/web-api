@@ -15,8 +15,7 @@ router.post('/', async (req, res) => {
                 minigame,
                 usuario,
                 pontuacao,
-                tempo,
-                posicao,
+                tempo
             }
         })
 
@@ -73,7 +72,6 @@ router.put('/:id', async (req, res) => {
                 usuario,
                 pontuacao,
                 tempo,
-                posicao,
                 dataAtualizacao: new Date()
             },
         })
