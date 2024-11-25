@@ -8,6 +8,7 @@
 * **Express** : Framework para construção de APIs.
 * **Prisma** : ORM para interagir com o banco de dados MongoDB.
 * **MongoDB** : Banco de dados NoSQL.
+
 <div align="center">
 <img src="https://skillicons.dev/icons?i=nodejs" height="35 "alt="nodejs logo"/>
 <img src="https://skillicons.dev/icons?i=express" height="35 "alt="express logo"/>
