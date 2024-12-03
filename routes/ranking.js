@@ -12,7 +12,7 @@ router.post('/', async (req, res) => {
 
         const novoRanking = await prisma.ranking.create({
             data: {
-                minigame,
+                minigame_id,
                 usuario,
                 pontuacao,
                 tempo,
