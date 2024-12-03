@@ -23,7 +23,7 @@ model minigames {
 
 model ranking {
   id              String   @id @default(auto()) @map("_id") @db.ObjectId
-  minigame        String 
+  minigame        String   @db.ObjectId
   usuario         String
   pontuacao       Int     
   tempo           Float    // Tempo gasto no minigame (em segundos, por exemplo)
