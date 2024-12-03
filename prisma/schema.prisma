@@ -19,6 +19,8 @@ model minigames {
   data_ultimo_update DateTime @db.Date
   descricao          String
   nome               String
+
+  ranking ranking[] @relation(fields: [id], references: [minigames])
 }
 
 model ranking {
