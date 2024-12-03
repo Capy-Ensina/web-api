@@ -55,12 +55,12 @@ router.put('/:id', async (req, res) => {
 
     try {
         const { id } = req.params;
-        const { minigame, usuario, pontuacao, tempo } = req.body;
+        const { minigame_id, usuario, pontuacao, tempo } = req.body;
 
         const rankingAtualizado = await prisma.ranking.update({
             where: { id },
             data: {
-                minigame,
+                minigame_id,
                 usuario,
                 pontuacao,
                 tempo,
