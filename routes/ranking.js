@@ -8,11 +8,11 @@ const router = express.Router();
 router.post('/', async (req, res) => {
 
     try {
-        const { minigame_id, usuario, pontuacao, tempo } = req.body;
+        const { minigame, usuario, pontuacao, tempo } = req.body;
 
         const novoRanking = await prisma.ranking.create({
             data: {
-                minigame_id,
+                minigame,
                 usuario,
                 pontuacao,
                 tempo,
@@ -55,12 +55,12 @@ router.put('/:id', async (req, res) => {
 
     try {
         const { id } = req.params;
-        const { minigame_id, usuario, pontuacao, tempo } = req.body;
+        const { minigame, usuario, pontuacao, tempo } = req.body;
 
         const rankingAtualizado = await prisma.ranking.update({
             where: { id },
             data: {
-                minigame_id,
+                minigame,
                 usuario,
                 pontuacao,
                 tempo,
