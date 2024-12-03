@@ -25,19 +25,6 @@ router.post('/', async (req, res) => {
                 { tempo: 'asc'}, // menor tempo primeiro
             ]
         })
-
-   
-        // Atualizar a posição de cada jogador
-        // Aqui usamos um loop para garantir que a posição seja corretamente atribuída
-        for (let i = 0; i < rankings.length; i++) {
-            const ranking = rankings[i];
-
-            // Atualizando a posição (garantindo que é um inteiro)
-            await prisma.ranking.update({
-                where: { id: ranking.id },
-                data: { posicao: i + 1 },  // A posição é definida pelo índice + 1
-            });
-        }
         
         res.status(200).json(novoRanking);
     } catch (err) {
@@ -87,14 +74,6 @@ router.put('/:id', async (req, res) => {
                 { tempo: 'asc' },
             ],
         })
-
-         // Atualiza a posição de cada registro
-         for (let i = 0; i < rankings.length; i++) {
-            await prisma.ranking.update({
-                where: { id: rankings[i].id },
-                data: { posicao: i + 1 },
-            })
-        }
 
         res.status(200).json(rankingAtualizado);
     } catch (err) {

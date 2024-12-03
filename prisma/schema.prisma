@@ -13,61 +13,6 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model conteudo {
-  id                 String   @id @default(auto()) @map("_id") @db.ObjectId
-  data_criacao       DateTime @default(now())
-  data_ultimo_update DateTime @db.Date
-  titulo             String
-  conteudo           String
-}
-
-model customizacao_casa {
-  id                 String @id @default(auto()) @map("_id") @db.ObjectId
-  moveis_id          String @db.ObjectId
-  papel_de_parede_id String @db.ObjectId
-  piso_id            String @db.ObjectId
-}
-
-model itens {
-  id                  String @id @default(auto()) @map("_id") @db.ObjectId
-  loja_id             String @db.ObjectId
-  quantidade_comprado Int
-}
-
-model jogador {
-  id                String   @id @default(auto()) @map("_id") @db.ObjectId
-  nome              String
-  usuario           String   @unique
-  senha             String
-  data_nascimento   DateTime @db.Date
-  cidade            String
-  telefone          String
-  email             String   @unique
-  data_registro     DateTime @default(now())
-  minigames         Json     // Array de objetos armazenado como JSON
-  desbloqueio       String[] // Array de strings
-  quantidade_moedas Int      @default(0)
-  nivel             Int      @default(1)
-  fase              Int      @default(1)
-
-  @@map("jogador") // Mapeia para a coleção "jogador"
-}
-
-model jogador_pontuacao {
-  id                 String @id @default(auto()) @map("_id") @db.ObjectId
-  minigame_id        String @db.ObjectId
-  pontos             Int
-  repeticao_minigame Int
-}
-
-model loja {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  descricao String
-  imagem    String
-  nome      String
-  preco     Int    @map("preco")
-}
-
 model minigames {
   id                 String   @id @default(auto()) @map("_id") @db.ObjectId
   data_criacao       DateTime @db.Date
@@ -76,31 +21,12 @@ model minigames {
   nome               String
 }
 
-model moveis {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  descricao String
-  imagem    String
-}
-
-model papel_de_parede {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  descricao String
-  imagem    String
-}
-
-model piso {
-  id        String @id @default(auto()) @map("_id") @db.ObjectId
-  descricao String
-  imagem    String
-}
-
 model ranking {
   id              String   @id @default(auto()) @map("_id") @db.ObjectId
   minigame        String 
   usuario         String
   pontuacao       Int     
   tempo           Float    // Tempo gasto no minigame (em segundos, por exemplo)
-  posicao         Int?      // Posição no ranking
   dataAtualizacao DateTime @default(now()) // Data e hora da última atualização
 
   @@map("ranking") // Nome da coleção no MongoDB
